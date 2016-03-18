@@ -1,0 +1,66 @@
+<h1>
+    <%= gravatar_for @user %>
+    <%= @user.name %>
+</h1>
+
+<h2>ユーザー情報を変更します</h2>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@user, html: {class: "form-horizontal"}) do |f| %>
+
+        <% if @user.errors.present? %>
+            <div class="alert alert-danger">
+                <%= alert %>
+                <ul>
+                    <% @user.errors.full_messages.each do |full_message| %>
+                    <li>
+                        <%= full_message %>
+                    </li>
+                    <% end %>
+                </ul>
+            </div>
+        <% end %>
+
+        <div class="form-group">
+            <label class="control-label">Name：</label>
+            <div>
+                <%= f.text_field :name, class: "form-control" %>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label">Email：</label>
+            <div>
+                <%= f.email_field :email, class: "form-control" %>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label">Region：</label>
+            <div>
+                <%= f.text_field :region, class: "form-control" %>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label">Password：</label>
+            <div>
+                <%= f.password_field :password, class: "form-control" %>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label">Password Confirmation：</label>
+            <div>
+                <%= f.password_field :password_confirmation, class: "form-control" %>
+            </div>
+        </div>
+
+        <div>
+            <%= f.submit class: "btn btn-sm btn-primary" %>
+        </div>
+
+    <% end %>
+  </div>
+</div>

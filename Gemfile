@@ -47,3 +47,6 @@ group :development do
   gem 'spring'
 end
 
+# Install pry
+gem 'pry-byebug', group: :development
+
