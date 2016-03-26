@@ -2,7 +2,6 @@ class RelationshipsController < ApplicationController
     before_action :logged_in_user
     
     def create
-        #binding.pry
         @user = User.find(params[:followed_id])
         current_user.follow(@user)
     end
