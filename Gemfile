@@ -53,3 +53,4 @@ gem 'pry-byebug', group: :development
 # Install paginate
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
+
