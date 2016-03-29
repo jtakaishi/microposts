@@ -24,7 +24,7 @@
         <%= render @microposts %>
       </ol>
       
-      <%= will_paginate @microposts %>
+      <%= will_paginate @microposts, :previous_label=>'前のページ', :next_label=>'次のページ' %>
 
       <% end %>
     </div>
