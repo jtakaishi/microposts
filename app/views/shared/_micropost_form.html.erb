@@ -3,15 +3,21 @@
 <%= render 'shared/error_messages', object: f.object %>
 
 <div class="field">
-    <%= f.text_area :content, placeholder: "内容を入力してください" %>
+  <%= f.text_area :content, placeholder: "内容を入力してください" %>
+  
+  <% if @micropost.picture? %>
+    <div class="thumbnail">
+      <b>アップロードされた画像:</b><br> 
+      <%= image_tag @micropost.picture.url %>
+    </div>
+  <% end %>
+  
+  <b>新規画像をアップロードする:</b><br>
+  <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+  <%= f.hidden_field :picture_cache %>
 </div>
 
 <%= f.submit "投稿する", class: "btn btn-primary" %>
-
-<span class="picture">
-    <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png'  %>
-    <%= f.hidden_field :picture_cache %>
-</span>
 
 <% end %>
 
