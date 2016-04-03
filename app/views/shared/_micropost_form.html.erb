@@ -10,6 +10,7 @@
 
 <span class="picture">
     <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png'  %>
+    <%= f.hidden_field :picture_cache %>
 </span>
 
 <% end %>
